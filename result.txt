@@ -5,4 +5,4 @@ test3.txt: 31
  
  File with the maximum word count is test3.txt with the word count: 31 
  Total sum of word counts of all the files in the directory is: 84 
- IP Address of the Machine is: 50.5.226.33
+ IP Address of the Machine is: 
