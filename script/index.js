@@ -10,8 +10,8 @@ http.get({'host': 'api.ipify.org', 'port': 80, 'path': '/'}, function(resp) {
       ip = ipa;
     });
   });
-  
 
+  
 fs.readdir('/home/data', (error, content) => {
     if (error) throw error;
     const files = content.filter((file) => file.includes('.txt'));
@@ -31,19 +31,14 @@ fs.readdir('/home/data', (error, content) => {
         for (const key in lengthOfFiles) {
             filesInfo = filesInfo + `${key}: ${lengthOfFiles[key]}\n`
         }
-        let resultContent = `All the files and their respective word counts are: \n${filesInfo} \n File with the maximum word count is ${fileName} with the word count: ${maxCount} \n Total sum of word counts of all the files in the directory is: ${sum} \n IP Address of the Machine is: ${ip}`;
+        let resultContent = `All the files and their respective word counts are: \n${filesInfo} \nFile with the maximum word count is ${fileName} with the word count: ${maxCount} \nTotal sum of word counts of all the files in the directory is: ${sum} \nIP Address of the Machine is: ${ip}`;
         fs.mkdir('/home/output', { recursive: true }, (err) => {
             if (err) throw err;
             setTimeout(() => {
-                fs.writeFile('/home/output/result.txt', resultContent, (err) => {
-                    if (err) {
-                        throw err;
-                    };
-
-                });
+                fs.writeFile('/home/output/result.txt', resultContent, (err) => { if (err) { throw err; }; });
             }, 300);
-            console.log('Folder created successfully!');
+            console.log('Result.txt File Content:', resultContent);
         });
-    }, 300);
+    }, 900);
 });
 
